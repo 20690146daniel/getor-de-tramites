@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-header">{{ __('Menu principal') }}</div>
             <div class="card-body">
-              <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('actualizar') }}'">
+              <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('cambio') }}'">
                 {{ __('Cambiar contraseña') }}
             </button>
               

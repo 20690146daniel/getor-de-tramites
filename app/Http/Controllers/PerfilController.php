@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash; 
 
 class PerfilController extends Controller
 {
@@ -13,10 +14,40 @@ class PerfilController extends Controller
     {
         return view('perfil');
     }
-    public function updatepassword()
+
+    public function cambiar()
     {
         return view('actualizar');
     }
+    public function updatepassword(Request $request)
+    {
+        $user = auth()->user();
+        $repeatPassword = '';
+        $notification = '';
+    
+        
+        $request->validate([
+            'current_password' => ['required', 'current_password'], 
+            'new_password' => ['required', 'string', 'min:8', 'confirmed'], 
+        ]);
+    
+      
+        if (Hash::check($request->new_password, $user->password)) {
+            $repeatPassword = 'La nueva contraseña no puede ser similar a la anterior';
+            return redirect()->back()->with('repeatPassword', $repeatPassword);
+        } else {
+          
+            $user->update([
+                'password' => bcrypt($request->new_password)
+            ]);
+    
+            $notification = 'La contraseña se ha actualizado correctamente';
+        }
+    
+        
+        return redirect()->back()->with(compact('repeatPassword', 'notification'));
+    }
+    
 
 
     /**

@@ -19,8 +19,15 @@
               {{ session('status') }}
             </div>
           @endif
+          @role('Secretaria')
+          <p> Esto todo los ven</p>
+          @endrole
+          
 
+          
         </div>
+
+        
       </div>
     </div>
   </div>

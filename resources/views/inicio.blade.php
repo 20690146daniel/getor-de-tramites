@@ -6,7 +6,7 @@
 <section>
     
 <h3>
-    Inicio
+    hola
 </h3>
 </section>
 

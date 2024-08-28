@@ -22,7 +22,11 @@ Route::get('/tramites', [App\Http\Controllers\TramiteController::class, 'index']
 Route::get('/home', [App\Http\Controllers\InicioController::class, 'index'])->name('home');
 Route::get('/archivos', [App\Http\Controllers\ArchivosController::class, 'index'])->name('archivos');
 Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil');
-Route::get('/contrasena', [App\Http\Controllers\PerfilController::class, 'updatepassword'])->name('actualizar');
+Route::get('/contrasena', [App\Http\Controllers\PerfilController::class, 'cambiar'])->name('cambio');
+Route::post('/actualizar', [App\Http\Controllers\PerfilController::class, 'updatepassword'])->name('actualizar');
+
+
+
 
 
 Route::resource('files', FileController::class);
