@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('tramites', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('descripcion');
+            $table->string('direccion');
+            $table->string('telefono');
+            $table->text('descripcion');
+            $table->string('tipo_tramite');
+            $table->text('observaciones');
+            $table->string('secretaria_designada');
+            
             $table->string('estado')->default('pendiente');
             $table->timestamps();
         });

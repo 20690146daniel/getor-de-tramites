@@ -22,7 +22,8 @@
                 <td></td>
                 <td></td>
                 <td>
-                 <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('perfil') }}'">{{ __('Crear') }}</button>
+                
+                
                  <button type="button" class="btn btn-danger" onclick="window.location.href='{{ route('perfil') }}'">{{ __('Eleminar') }}</button>
                 <button type="button" class="btn btn-warning" onclick="window.location.href='{{ route('perfil') }}'">{{ __('Editar') }}</button>
                 <button type="button" class="btn btn-success" onclick="window.location.href='{{ route('perfil') }}'">{{ __('Derivar') }}</button></td>
@@ -30,6 +31,12 @@
           
         </tbody>
     </table>
-</div>
+
+    <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('crear') }}'">{{ __('Crear') }}</button>
+      
+    
+    
+  </div>
 
 @endsection
