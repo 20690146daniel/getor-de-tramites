@@ -36,9 +36,9 @@
                 <div class="form-group">
                     <label style="margin-bottom: 0.5rem;">Tipo de Trámite</label>
                     <select class="form-control" name="tipo_tramite" required>
-                        <option value="opcion1">Opción 1</option>
-                        <option value="opcion2">Opción 2</option>
-                        <option value="opcion3">Opción 3</option>
+                        @foreach ($tiposTramite as $tipo)
+                        <option value="{{ $tipo->nombre }}">{{ $tipo->nombre }}</option>
+                    @endforeach
                     </select>
                 </div>
             
@@ -50,9 +50,9 @@
                 <div class="form-group">
                     <label style="margin-bottom: 0.5rem;">Designar a Secretaría</label>
                     <select class="form-control" name="secretaria_designada" required>
-                        <option value="opcion1">Opción 1</option>
-                        <option value="opcion2">Opción 2</option>
-                        <option value="opcion3">Opción 3</option>
+                        @foreach ($secretaria as $tipo)
+                        <option value="{{ $tipo->nombre }}">{{ $tipo->nombre }}</option>
+                    @endforeach
                     </select>
                 </div>
 

@@ -2,34 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Tramite;
+
+use App\Models\TipoTramite;
+use App\Models\Secretarias;
+
+use Illuminate\Http\Request;
+
 
 class TramiteController extends Controller
 {
+    
+    public function mostrarFormulario()
+    {
+
+        $tiposTramite = TipoTramite::all();
+        $secretaria = Secretarias::all();
+        
+    
+        return view('tramitesviews.crear', compact('tiposTramite','secretaria'));
+    }
+
+   
+    
     public function index()
     {
         return view('tramites');
+
+
     }
-
-    public function guardar(Request $request)
-    {
-        
-        $request->validate([
-            'nombre' => 'required|string|max:255',
-            'direccion' => 'required|string',
-            'telefono' => 'required|date',
-            'descripcion' => 'required|string',
-            'observaciones' => 'required|string',
-            'usuario_id' => 'required|integer',
-        ]);
-
-        
-        Tramite::crearNuevo($request->all());
-
-        
-        return redirect()->back()->with('success', 'Trámite guardado exitosamente');
-    }
+  
     public function store(Request $request)
 {
     
@@ -48,6 +50,8 @@ class TramiteController extends Controller
 
     return redirect()->back()->with('success', 'Trámite guardado exitosamente.');
 }
+
+
 
     
 }
